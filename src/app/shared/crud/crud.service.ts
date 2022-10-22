@@ -20,6 +20,10 @@ export class CrudService<T extends Crud> {
     return this.httpClient.get<T[]>(this.getApi()).pipe(first());
   }
 
+  lisPagination() {
+    return this.httpClient.get<T[]>(this.getApi()).pipe(first());
+  }
+
   private create(record: T) {
     return this.httpClient.post<T>(this.getApi(), record).pipe(first());
   }

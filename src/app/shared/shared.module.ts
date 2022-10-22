@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { PhoneFormatPipe } from './pipe/phone-format.pipe';
 
 
 
@@ -11,6 +12,7 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
   declarations: [
     ErrorDialogComponent,
     ConfirmDialogComponent,
+    PhoneFormatPipe,
 
   ],
   imports: [
@@ -18,7 +20,9 @@ import { ErrorDialogComponent } from './components/error-dialog/error-dialog.com
     AppMaterialModule
   ],
   exports: [
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    ConfirmDialogComponent,
+    PhoneFormatPipe
   ]
 })
 export class SharedModule { }

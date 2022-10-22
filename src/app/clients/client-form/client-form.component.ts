@@ -1,10 +1,10 @@
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
 import { Client } from '../model/client';
 import { Problem } from './../../shared/model/problem';
@@ -37,14 +37,16 @@ export class ClientFormComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
-      phone: [client.phone],
+      email: [client.email, [Validators.required, Validators.email]],
+      phone: [client.phone, [Validators.required]],
     });
   }
 
   ngOnInit(): void {}
 
-
   onSubmit() {
+    console.log(this.form.value);
+
     this.service.save(this.form.value).subscribe(
       () => {
         this.onSucess();
@@ -63,7 +65,7 @@ export class ClientFormComponent implements OnInit {
   }
 
   private onError(err: Problem) {
-    this.dialog.open(ErrorDialogComponent,  {
+    this.dialog.open(ErrorDialogComponent, {
       data: err,
     });
   }

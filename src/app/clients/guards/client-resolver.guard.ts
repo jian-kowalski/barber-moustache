@@ -27,6 +27,7 @@ export class ClientResolverGuard implements Resolve<Client> {
     return of({
       id: '',
       name: '',
+      email: '',
       phone: '',
     });
   }
