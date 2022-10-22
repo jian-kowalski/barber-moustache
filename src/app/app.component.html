@@ -1,4 +1,11 @@
 <mat-toolbar color="primary">
   <span>Bem vindo!</span>
+  <div>
+    <a mat-button [routerLink]="'/index'"> Home </a>
+  </div>
+  <div>
+    <a mat-button [routerLink]="'/clients'"> Clientes </a>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
+

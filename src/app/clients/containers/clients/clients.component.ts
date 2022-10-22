@@ -53,7 +53,7 @@ export class ClientsComponent implements OnInit {
   }
 
   onDelete(client: Client) {
-    const dialogRef = this.dialog
+    this.dialog
       .open(ConfirmDialogComponent, {
         data: `Deseja exluir o cliente ${client.name}?`,
       })

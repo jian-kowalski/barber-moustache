@@ -13,7 +13,6 @@ import { PhoneFormatPipe } from './pipe/phone-format.pipe';
     ErrorDialogComponent,
     ConfirmDialogComponent,
     PhoneFormatPipe,
-
   ],
   imports: [
     CommonModule,
