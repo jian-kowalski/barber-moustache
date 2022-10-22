@@ -12,6 +12,7 @@ export class ClientsListComponent implements OnInit {
   @Input() clients: Client[] =[];
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
+  @Output() delete = new EventEmitter(false);
   readonly displayedColumns = ['name', 'phone', 'email', 'actions'];
 
   constructor() { }
@@ -28,7 +29,7 @@ export class ClientsListComponent implements OnInit {
   }
 
   onDelete(client: Client) {
-
+    this.delete.emit(client);
   }
 
 }

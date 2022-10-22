@@ -24,7 +24,11 @@ export class ClientsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.clients$ = this.service.lisPagination().pipe(
+    this.clients$ = this.loadClients();
+  }
+
+  loadClients():Observable<Client[]> {
+    return this.service.lisPagination().pipe(
       catchError((err) => {
         this.onError(err);
         return of([]);
@@ -57,7 +61,7 @@ export class ClientsComponent implements OnInit {
       .subscribe((res) => {
         if (res) {
           this.service.delete(client.id).subscribe(
-            (sucess) => {},
+            () => {this.clients$ = this.loadClients()},
             (res) => this.onError(res)
           );
         }

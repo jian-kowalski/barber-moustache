@@ -7,7 +7,7 @@
   <mat-card-content>
     <div class="column-flex mat-elevation-z8">
       <app-clients-list *ngIf="clients$ | async as clients; else loading" [clients]="clients" (add)="onAdd()"
-      (edit)="onEdit($event)">
+      (edit)="onEdit($event)" (delete)="onDelete($event)">
       </app-clients-list>
       <ng-template #loading>
         <div class="loading-spinner">
