@@ -24,7 +24,7 @@ export class CrudService<T extends Crud> {
     return this.httpClient.get<T[]>(this.getApi()).pipe(first());
   }
 
-  private create(record: T) {
+  private create(record: Partial<T>) {
     return this.httpClient.post<T>(this.getApi(), record).pipe(first());
   }
 
@@ -36,13 +36,13 @@ export class CrudService<T extends Crud> {
     return this.httpClient.delete(`${this.getApi()}/${id}`).pipe(first());
   }
 
-  private update(record: T) {
+  private update(record: Partial<T>) {
     return this.httpClient
       .put<T>(`${this.getApi()}/${record.id}`, record)
       .pipe(first());
   }
 
-  save(record: T) {
+  save(record: Partial<T>) {
     if (record.id) {
       return this.update(record);
     }

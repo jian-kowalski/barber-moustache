@@ -4,14 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { ClientFormComponent } from './client-form/client-form.component';
+import { ClientFormComponent } from './containers/client-form/client-form.component';
 import { ClientsRoutingModule } from './clients-routing.module';
-import { ClientsComponent } from './clients/clients.component';
+import { ClientsComponent } from './containers/clients/clients.component';
+import { ClientsListComponent } from './components/clients-list/clients-list.component';
 
 @NgModule({
   declarations: [
     ClientsComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    ClientsListComponent
   ],
   imports: [
     CommonModule,

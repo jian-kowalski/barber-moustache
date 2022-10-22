@@ -1,13 +1,14 @@
+import { Client } from './../../model/client';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 
-import { ConfirmDialogComponent } from './../../shared/components/confirm-dialog/confirm-dialog.component';
-import { Problem } from './../../shared/model/problem';
-import { Client } from './../model/client';
-import { ClientsService } from './../services/clients.service';
+import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { Problem } from '../../../shared/model/problem';
+
+import { ClientsService } from '../../services/clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -16,9 +17,6 @@ import { ClientsService } from './../services/clients.service';
 })
 export class ClientsComponent implements OnInit {
   clients$: Observable<Client[]>;
-
-  displayedColumns = ['name', 'phone', 'email', 'actions'];
-
 
   constructor(
     private service: ClientsService,
@@ -46,8 +44,8 @@ export class ClientsComponent implements OnInit {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 
-  onEdit(id: string) {
-    this.router.navigate(['edit', id], { relativeTo: this.route });
+  onEdit(client: Client) {
+    this.router.navigate(['edit', client.id], { relativeTo: this.route });
   }
 
   onDelete(client: Client) {

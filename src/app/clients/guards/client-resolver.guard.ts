@@ -14,6 +14,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class ClientResolverGuard implements Resolve<Client> {
+  
   constructor(private service: ClientsService) {}
 
   resolve(
@@ -23,7 +24,6 @@ export class ClientResolverGuard implements Resolve<Client> {
     if (route.params && route.params['id']) {
       return this.service.loadById(route.params['id']);
     }
-
     return of({
       id: '',
       name: '',

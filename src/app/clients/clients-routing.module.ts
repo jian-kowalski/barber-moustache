@@ -2,8 +2,8 @@ import { ClientResolverGuard } from './guards/client-resolver.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ClientFormComponent } from './client-form/client-form.component';
-import { ClientsComponent } from './clients/clients.component';
+import { ClientFormComponent } from './containers/client-form/client-form.component';
+import { ClientsComponent } from './containers/clients/clients.component';
 
 const routes: Routes = [
   { path: '', component: ClientsComponent },
